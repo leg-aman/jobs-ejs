@@ -70,9 +70,7 @@ app.use(passport.session());
 app.use(require("connect-flash")());
 app.use(require("./middleware/storeLocals"));
 
-// CSRF
-// must come after body parser and cookie parser
-// and before routes
+
 app.use(hostCsrf.csrf());
 
 app.use((req, res, next) => {
@@ -91,9 +89,9 @@ const secretWordRouter = require("./routes/secretWord");
 const auth = require("./middleware/auth");
 app.use("/secretWord", auth, secretWordRouter);
 
-// later you will add jobs routes here
-// const jobsRouter = require("./routes/jobs");
-// app.use("/jobs", auth, jobsRouter);
+
+const jobsRouter = require("./routes/jobs");
+app.use("/jobs", auth, jobsRouter);
 
 // 404
 app.use((req, res) => {
