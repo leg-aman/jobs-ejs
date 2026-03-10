@@ -1,0 +1,16 @@
+bcryptjs
+connect-flash
+connect-mongodb-session
+cookie-parser
+dotenv
+ejs
+express
+express-async-errors
+express-rate-limit
+express-session
+helmet
+host-csrf
+mongoose
+passport
+passport-local
+xss-clean
