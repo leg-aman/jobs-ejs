@@ -1,0 +1,19 @@
+<%- include("partials/head.ejs") %>
+    <%- include("partials/header.ejs") %>
+        <form method="POST">
+            <div>
+                <label name="email">Enter your email:</label>
+                <input name="email" />
+            </div>
+            <div>
+                <label name="password">Enter your password:</label>
+                <input type="password" name="password" />
+            </div>
+            <div>
+                <button>Logon</button>
+                <a href="/">
+                    <button type="button">Cancel</button>
+                </a>
+            </div>
+        </form>
+        <%- include("partials/footer.ejs") %>
