@@ -14,15 +14,12 @@ router
   .route("/logon")
   .get(logonShow)
   .post(
-    passport.authenticate("local", {
-      successRedirect: "/",
-      failureRedirect: "/sessions/logon",
-      failureFlash: true,
-    }),
-    (req, res) => {
-      res.send("Not yet implemented.");
-    }
-  );
+  passport.authenticate("local", {
+    successRedirect: "/",
+    failureRedirect: "/sessions/logon",
+    failureFlash: true,
+  })
+);
 router.route("/logoff").post(logoff);
 
 module.exports = router;

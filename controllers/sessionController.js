@@ -8,7 +8,7 @@ const registerShow = (req, res) => {
 const registerDo = async (req, res, next) => {
   if (req.body.password != req.body.password1) {
     req.flash("error", "The passwords entered do not match.");
-    return res.render("register", {  errors: flash("error") });
+    return res.render("register", {  errors: req.flash("error") });
   }
   try {
     await User.create(req.body);
@@ -20,7 +20,7 @@ const registerDo = async (req, res, next) => {
     } else {
       return next(e);
     }
-    return res.render("register", {  errors: flash("error") });
+    return res.render("register", {  errors: req.flash("error") });
   }
   res.redirect("/");
 };
