@@ -1,18 +1,28 @@
 <h1>The Jobs EJS Application</h1>
+
 <% if (user) { %>
-    <p>User <%= user.name %> is logged on.</p>
-    <form method="POST" action="/sessions/logoff">
-        <button>Logoff</button>
-    </form>
-    <% } %>
-        <% if (errors) { errors.forEach((err)=> { %>
-            <div>
-                Error: <%= err %>
-            </div>
-            <% }) } %>
-                <% if (info) { info.forEach((msg)=> { %>
-                    <div>
-                        Info: <%= msg %>
-                    </div>
-                    <% }) } %>
-                        <hr />
+  <p>User <%= user.name %> is logged on.</p>
+
+  <a href="/">Home</a>
+  <a href="/secretWord">Secret Word</a>
+  <a href="/jobs">Jobs</a>
+
+  <form method="POST" action="/sessions/logoff">
+    <input type="hidden" name="_csrf" value="<%= _csrf %>" />
+    <button>Logoff</button>
+  </form>
+<% } %>
+
+<% if (errors) { errors.forEach((err) => { %>
+  <div>
+    Error: <%= err %>
+  </div>
+<% }) } %>
+
+<% if (info) { info.forEach((msg) => { %>
+  <div>
+    Info: <%= msg %>
+  </div>
+<% }) } %>
+
+<hr />
